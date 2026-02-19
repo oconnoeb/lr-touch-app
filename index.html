@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Touch the Picture (Field of 2)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app" aria-label="Touch the Picture App">
+    <header class="topbar">
+      <div class="status">
+        <div id="trialCounter" class="trialCounter">Trial 1</div>
+        <div id="accuracy" class="accuracy">Accuracy: —</div>
+      </div>
+
+      <div class="controls">
+        <label class="toggle">
+          <input id="speakToggle" type="checkbox" />
+          <span>Speak SD</span>
+        </label>
+
+        <button id="restartBtn" class="btn" type="button">Restart</button>
+      </div>
+    </header>
+
+    <main id="stage" class="stage" role="main">
+      <!-- Trial screen -->
+      <div id="trialScreen" class="screen trialScreen">
+        <div id="sdText" class="sdText">Touch the ____</div>
+
+        <div class="choices" aria-label="Choices">
+          <button id="leftChoice" class="choice" type="button" aria-label="Left choice">
+            <img id="leftImg" alt="" />
+            <div id="leftLabel" class="label"></div>
+          </button>
+
+          <button id="rightChoice" class="choice" type="button" aria-label="Right choice">
+            <img id="rightImg" alt="" />
+            <div id="rightLabel" class="label"></div>
+          </button>
+        </div>
+
+        <div class="hint">
+          (Tap the picture. Tapping anywhere else counts as incorrect.)
+        </div>
+      </div>
+
+      <!-- Correct screen -->
+      <div id="correctScreen" class="screen feedbackScreen hidden" aria-live="polite">
+        <div class="feedbackIcon star">⭐</div>
+        <div class="feedbackText">Great work!</div>
+      </div>
+
+      <!-- Incorrect screen -->
+      <div id="incorrectScreen" class="screen feedbackScreen hidden incorrect">
+        <div class="feedbackIcon x">✖</div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <button id="downloadBtn" class="btn secondary" type="button">Download session data (CSV)</button>
+    </footer>
+  </div>
+
+  <script src="trials.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
